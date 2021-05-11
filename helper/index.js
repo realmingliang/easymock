@@ -21,8 +21,9 @@ exports.converData = function (mock) {
   if(mock.method==="post"||mock.method==="put"){
     return "data:opts,"
   }
-  return 'params:opts',
+  return 'params:opts';
 };
+
 exports.joinUrl = function () {
   // https://www.easy-mock.com//mock/.... => https://www.easy-mock.com/mock/....
   var url = [].slice.call(arguments, 0).join('/');
