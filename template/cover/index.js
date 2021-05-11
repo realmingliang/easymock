@@ -5,7 +5,7 @@ function {{$$.convertMethod(mock)}}(opts) {
   return axios({
     method: '{{mock.method}}',
     url: <% if($$.isREST(mock.url)) {%>convertRESTAPI('{{mock.url}}', opts)<%} else {%> '{{mock.url}}'<% } %>,
-    opts: opts
+    {{$$.converData(mock)}}
   });
 }
 

@@ -17,7 +17,12 @@ exports.convertMethod = function (mock) {
   // restful_id_list_id => restful_id_list_id_p
   return convertUrl(mock.url) + '_' + mock.method.toLowerCase();
 };
-
+exports.converData = function (mock) {
+  if(mock.method==="post"||mock.method==="put"){
+    return "data:opts,"
+  }
+  return 'params:opts',
+};
 exports.joinUrl = function () {
   // https://www.easy-mock.com//mock/.... => https://www.easy-mock.com/mock/....
   var url = [].slice.call(arguments, 0).join('/');
