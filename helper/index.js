@@ -19,12 +19,12 @@ exports.convertMethod = function (mock) {
 };
 exports.converData = function (mock) {
   if(mock.method==="post"||mock.method==="put"){
-    return "data:opts,"
+    return "data:convertOpts(opts),"
   }
   if(mock.method==="get"||mock.method==="delete"){
     return ""
   }
-  return 'params:opts';
+  return 'params:convertOpts(opts)';
 };
 
 exports.joinUrl = function () {

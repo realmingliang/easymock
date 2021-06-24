@@ -3,9 +3,13 @@ import axios from 'axios';
 function createAPI() {
   return axios;
 }
+function convertOpts(opts) {
+  if (!opts || !opts.path) return opts;
+  delete opts.path
+  return opts;
+}
 
 function convertRESTAPI(url, opts) {
-  console.log(opts)
   if (!opts || !opts.path) return url;
 
   const pathKeys = Object.keys(opts.path);

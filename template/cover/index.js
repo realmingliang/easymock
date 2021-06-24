@@ -1,4 +1,4 @@
-import { axios,convertRESTAPI } from '{{$$.relative("util")}}';
+import { axios,convertRESTAPI,convertOpts } from '{{$$.relative("util")}}';
 
 <% _.forEach(data.mocks, function(mock){ %>/** {{mock.description}} */
 function {{$$.convertMethod(mock)}}(opts) {
