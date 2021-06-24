@@ -9,7 +9,6 @@ var convertUrl = exports.convertUrl = function (url) {
     .filter(value => !!value).join('_');
   return _url.split('.')[0];
 };
-
 exports.convertMethod = function (mock) {
   // 防止重名
   // restful_id_list_id => restful_id_list_id_g
@@ -21,7 +20,7 @@ exports.converData = function (mock) {
   if(mock.method==="post"||mock.method==="put"){
     return "data:convertOpts(opts),"
   }
-  if(mock.method==="get"||mock.method==="delete"){
+  if(isREST(mock.url)&&mock.method==="get"||mock.method==="delete"){
     return ""
   }
   return 'params:convertOpts(opts)';
@@ -35,6 +34,6 @@ exports.joinUrl = function () {
   return url;
 }
 
-exports.isREST = function (url) {
+var isREST=exports.isREST = function (url) {
   return /(:|{|})/.test(url);
 }
