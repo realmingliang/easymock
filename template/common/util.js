@@ -25,5 +25,6 @@ function convertRESTAPI(url, opts) {
 export {
   axios,
   createAPI,
+  convertOpts,
   convertRESTAPI
 };
