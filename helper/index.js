@@ -21,6 +21,9 @@ exports.converData = function (mock) {
   if(mock.method==="post"||mock.method==="put"){
     return "data:opts,"
   }
+  if(mock.method==="get"||mock.method==="delete"){
+    return ""
+  }
   return 'params:opts';
 };
 
